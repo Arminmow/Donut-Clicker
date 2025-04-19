@@ -14,14 +14,10 @@ function App() {
       }}
     >
       <div
-        style={{
-          backgroundImage: `url('https://orteil.dashnet.org/cookieclicker/img/blackGradient.png')`,
-          width: "100%",
-          height: "100%",
-          position: "absolute",
-          top: "400px",
-        }}
+        className="absolute top-[500px] md:top-[550px] w-full bg-[url('https://orteil.dashnet.org/cookieclicker/img/blackGradient.png')]"
+        style={{ height: "-webkit-fill-available" }}
       ></div>
+
       <GameComponent />
       <ShopComponent />
     </div>
