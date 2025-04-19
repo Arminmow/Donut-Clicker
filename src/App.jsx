@@ -13,6 +13,11 @@ function App() {
         backgroundImage: `url('https://cookieclicker.wiki.gg/images/9/94/BgPink.jpg?8f1a88=&format=original')`,
       }}
     >
+      <div
+        className="absolute top-[500px] md:top-[550px] w-full bg-[url('https://orteil.dashnet.org/cookieclicker/img/blackGradient.png')]"
+        style={{ height: "-webkit-fill-available" }}
+      ></div>
+
       <GameComponent />
       <ShopComponent />
     </div>
