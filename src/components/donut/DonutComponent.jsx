@@ -1,6 +1,6 @@
 import React from "react";
 
-const donutImage = "https://i.ibb.co/b06nHLQ/cartoon-donut-vector-7272383-removebg-preview.png";
+const donutImage = "https://i.ibb.co/DPL2sNRL/Donuts-Coffee-And-Doughnuts-Clip-Art-Drawing-Cartoon-Biscuits-Dunkin-Pennant-Transparent-PNG-removeb.png";
 
 const DonutComponent = () => {
   return (
