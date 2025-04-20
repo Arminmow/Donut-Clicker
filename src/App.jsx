@@ -14,7 +14,7 @@ function App() {
       }}
     >
       <div
-        className="absolute top-[400px] md:top-[550px] w-full bg-[url('https://orteil.dashnet.org/cookieclicker/img/blackGradient.png')]"
+        className=" absolute top-[400px] md:top-[550px] w-full bg-[url('https://orteil.dashnet.org/cookieclicker/img/blackGradient.png')]"
         style={{ height: "-webkit-fill-available" }}
       ></div>
 
