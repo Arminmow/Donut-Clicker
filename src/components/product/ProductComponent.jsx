@@ -4,7 +4,7 @@ const ProductComponent = () => {
     return (
         <div
         
-            className="relative bg-[url('https://orteil.dashnet.org/cookieclicker/img/storeTile.jpg')] bg-cover bg-no-repeat h-16 w-full flex items-center p-2 cursor-pointer group"
+            className="relative bg-[url('https://orteil.dashnet.org/cookieclicker/img/storeTile.jpg')] bg-cover bg-no-repeat h-23 w-full flex items-center p-2 cursor-pointer group"
         >
             <div
                 className="h-16 w-16 bg-[url('https://cdn.dashnet.org/cookieclicker/img/buildings.png?v=2.052')]"
