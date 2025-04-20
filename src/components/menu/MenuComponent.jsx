@@ -3,7 +3,7 @@ import { Donut, Store, Ellipsis, Info } from "lucide-react";
 
 const MenuComponent = () => {
     return (
-        <div className="relative h-2/12 md:hidden overflow-hidden">
+        <div className="relative h-2/12 md:hidden overflow-hidden z-100">
       <svg
         className="absolute top-0 left-0 w-full h-full"
         viewBox="0 0 1440 320"
