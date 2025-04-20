@@ -25,7 +25,7 @@ return (
         }}
     >
         
-        <div className="flex-1 w-full overflow-y-auto flex flex-col items-center justify-start">
+        <div className="flex-1 w-full overflow-y-auto flex flex-col items-center justify-start" >
             
             <ProductComponent />
             <ProductComponent />
