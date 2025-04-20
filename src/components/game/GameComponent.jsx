@@ -4,7 +4,7 @@ import DonutComponent from "../donut/DonutComponent";
 
 const GameComponent = () => {
   return (
-    <div className="h-10/12 md:h-full md:w-2/3 flex flex-col items-center justify-center">
+    <div className="h-11/12 md:h-full md:w-2/3 flex flex-col items-center justify-center">
       <HeaderComponent />
       <DonutComponent />
     </div>
