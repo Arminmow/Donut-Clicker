@@ -1,10 +1,11 @@
 import React from "react";
+import { Donut, Store, Ellipsis, Info } from "lucide-react";
 
 const ShopComponent = () => {
   return (
-    <div className="relative h-1/10 md:hidden overflow-hidden">
+    <div className="relative h-2/12 md:hidden overflow-hidden">
       <svg
-        className="absolute top-0 left-0 w-full"
+        className="absolute top-0 left-0 w-full h-full"
         viewBox="0 0 1440 320"
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="none"
@@ -60,18 +61,28 @@ const ShopComponent = () => {
           d="M0,30L48,45C96,60,192,90,288,85C384,80,480,50,576,50C672,50,768,80,864,105C960,130,1056,150,1152,135C1248,120,1344,60,1392,40L1440,30L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
         />
       </svg>
-      <div className="absolute top-8 left-0 w-full flex justify-around items-center">
+      <div className="absolute bottom-1 left-0 w-full flex justify-around items-center">
         <div className="flex flex-col items-center">
-          <i className="fas fa-home text-2xl text-white"></i>
-          <span className="text-white text-sm">Home</span>
+          <Donut
+            size={48}
+            color="#ffffff"
+            strokeWidth={3}
+            absoluteStrokeWidth
+          />
+          <span className="text-white text-base font-bold">Donut</span>
         </div>
         <div className="flex flex-col items-center">
-          <i className="fas fa-shopping-cart text-2xl text-white"></i>
-          <span className="text-white text-sm">Shop</span>
+          <Store
+            size={48}
+            color="#ffffff"
+            strokeWidth={3}
+            absoluteStrokeWidth
+          />
+          <span className="text-white text-base font-bold">Store</span>
         </div>
         <div className="flex flex-col items-center">
-          <i className="fas fa-user text-2xl text-white"></i>
-          <span className="text-white text-sm">Profile</span>
+          <Info size={48} color="#ffffff" strokeWidth={3} absoluteStrokeWidth />
+          <span className="text-white text-base font-bold">Info</span>
         </div>
       </div>
     </div>
