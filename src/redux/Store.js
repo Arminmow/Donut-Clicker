@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import donutReducer from "./slices/DonutSlice";
+import playerReducer from "./slices/PlayerSlice";
 
 export const store = configureStore({
   reducer: {
-    donut: donutReducer,
+    player : playerReducer
   },
 });
