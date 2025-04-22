@@ -1,8 +1,11 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { increaseClickPower } from "../../redux/slices/PlayerSlice";
 
 const ProductComponent = ({ upgrade }) => {
+  const dispatch = useDispatch();
   return (
-    <div
+    <div onClick={upgrade.id === 0 ? () => dispatch(increaseClickPower()) : null}
       className={`relative bg-[url('https://i.ibb.co/7JbfM4hw/store-Tile-1.jpg')] bg-cover bg-no-repeat h-23 w-full flex items-center p-2 cursor-pointer group ${
         upgrade.locked ? "opacity-60" : "opacity-100"
       }`}

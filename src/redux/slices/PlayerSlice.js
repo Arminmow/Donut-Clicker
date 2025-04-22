@@ -10,6 +10,7 @@ const initialState = {
   })),
   stats: {
     donuts: 0,
+    clickPower: 1,
   },
 };
 
@@ -18,7 +19,7 @@ const playerSlice = createSlice({
   initialState,
   reducers: {
     clickDonut: (state) => {
-      state.stats.donuts += 1;
+      state.stats.donuts += state.stats.clickPower;
 
       state.upgrades.forEach((upgrade) => {
         if (upgrade.locked && state.stats.donuts >= upgrade.currentPrice) {
@@ -26,8 +27,18 @@ const playerSlice = createSlice({
         }
       });
     },
+    increaseClickPower: (state) => {
+      console.log("increaseClickPower called");
+      const upgrade = state.upgrades[0];
+      upgrade.count += 1;
+      upgrade.currentPrice = Math.floor(
+        upgrade.basePrice * Math.pow(upgrade.priceMultiplier, upgrade.count)
+      );
+      state.stats.clickPower += 1;
+    },
   },
 });
 
-export const { unlockUpgrade, clickDonut } = playerSlice.actions;
+export const { unlockUpgrade, clickDonut, increaseClickPower } =
+  playerSlice.actions;
 export default playerSlice.reducer;
