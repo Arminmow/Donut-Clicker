@@ -6,7 +6,8 @@ import { useSelector } from "react-redux";
 
 const Shop = ({ isMobile, isOpen }) => {
   const playerState = useSelector((state) => state.player);
-
+  const donuts = playerState.stats.donuts;
+  
   return (
     <motion.div
       name="shop"
@@ -28,7 +29,9 @@ const Shop = ({ isMobile, isOpen }) => {
       }}
     >
       <div className="flex-1 w-full overflow-y-auto flex flex-col items-center justify-start">
-        {playerState.upgrades.map((upgrade) => (
+        {playerState.upgrades.map((upgrade) =>
+        // Handle unlock here?
+         (
           <ProductComponent key={upgrade.id} upgrade={upgrade} />
         ))}
       </div>
