@@ -1,5 +1,8 @@
-    import { configureStore } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
+import donutReducer from "./slices/DonutSlice";
 
-    export const store = configureStore({
-        reducer : {}
-    })
+export const store = configureStore({
+  reducer: {
+    donut: donutReducer,
+  },
+});
