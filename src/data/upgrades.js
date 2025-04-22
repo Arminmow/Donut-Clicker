@@ -2,7 +2,7 @@ export const Upgrades = [
   {
     id: "0",
     label: "Click Power",
-    basePrice: 50,
+    basePrice: 15,
     priceMultiplier: 1.15,
   },
   {
@@ -10,13 +10,13 @@ export const Upgrades = [
     label: "Grandma",
     basePrice: 100,
     priceMultiplier: 1.15,
-    cps: 0.5,
+    cps: 1,
   },
   {
-    id: "2",
-    label: "Factory",
-    basePrice: 1000,
+    id: "3",
+    label: "Farm",
+    basePrice: 1100,
     priceMultiplier: 1.15,
-    cps: 10,
+    cps: 8,
   },
 ];
