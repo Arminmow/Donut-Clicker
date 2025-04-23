@@ -18,7 +18,7 @@ Yeah — this is basically that, but with donuts.
 
 ### TODO
 
--Stats panel
+- Stats panel
 - Ability to save progress  
 - Animation on click and animation behind donut  
 - Achievements  
