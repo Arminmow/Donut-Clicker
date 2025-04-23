@@ -11,7 +11,7 @@ const initialState = {
   })),
   stats: {
     donuts: 0,
-    clickPower: 1,
+    dps: 0,
   },
 };
 
@@ -20,7 +20,8 @@ const playerSlice = createSlice({
   initialState,
   reducers: {
     clickDonut: (state) => {
-      state.stats.donuts += state.stats.clickPower;
+      const upgrade = state.upgrades[0];
+      state.stats.donuts += upgrade.clickPower;
 
       state.upgrades.forEach((upgrade) => {
         if (upgrade.locked && state.stats.donuts >= upgrade.currentPrice) {
@@ -35,7 +36,7 @@ const playerSlice = createSlice({
       upgrade.currentPrice = Math.floor(
         upgrade.basePrice * Math.pow(upgrade.priceMultiplier, upgrade.count)
       );
-      state.stats.clickPower += 1;
+      upgrade.clickPower += 0.5
     },
     spendDonuts: (state, action) => {
       const amount = action.payload;
@@ -53,9 +54,47 @@ const playerSlice = createSlice({
     updateUpgradeAffordability: () => {
       //TODO WHEN PASSIVE INCOME IS ADDED
     },
+    addDonutsFromDps: (state, action) => {
+      const frameTime = action.payload; // should be 1 / 30
+      const dps = state.stats.dps || 0;
+      const donutsToAdd = dps * frameTime;
+
+      state.stats.donuts += donutsToAdd;
+    },
+    buyUpgrade: (state, action) => {
+      const upgradeId = action.payload;
+      const upgrade = state.upgrades.find((upgrade) => upgrade.id === upgradeId);
+      if (!upgrade) {
+        console.error(`Upgrade with id ${upgradeId} not found.`);
+        return;
+      }
+      console.log(upgrade.currentPrice);
+      
+      if (state.stats.donuts >= upgrade.currentPrice) {
+        upgrade.count += 1;
+        upgrade.currentPrice = Math.floor(
+          upgrade.basePrice * Math.pow(upgrade.priceMultiplier, upgrade.count)
+        );
+        state.stats.dps += upgrade.dps || 0;
+      } else {
+        console.error("Not enough donuts to buy the upgrade.");
+      }
+    },
+    checkAffordability: (state) => {
+      state.upgrades.forEach((upgrade) => {
+        upgrade.canAfford = state.stats.donuts >= upgrade.currentPrice;
+      });
+    }
   },
 });
 
-export const { unlockUpgrade, clickDonut, increaseClickPower, spendDonuts } =
-  playerSlice.actions;
+export const {
+  unlockUpgrade,
+  clickDonut,
+  increaseClickPower,
+  spendDonuts,
+  addDonutsFromDps,
+  buyUpgrade,
+  checkAffordability
+} = playerSlice.actions;
 export default playerSlice.reducer;

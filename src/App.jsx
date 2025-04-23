@@ -1,9 +1,7 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import GameComponent from "./components/game/GameComponent";
 import ShopComponent from "./components/shop/ShopComponent";
+import GameEngine from "./components/engine/GameEngine";
 
 function App() {
   return (
@@ -17,7 +15,7 @@ function App() {
         className=" absolute top-[400px] md:top-[550px] w-full bg-[url('https://orteil.dashnet.org/cookieclicker/img/blackGradient.png')]"
         style={{ height: "-webkit-fill-available" }}
       ></div>
-
+      <GameEngine />
       <GameComponent />
       <ShopComponent />
     </div>
