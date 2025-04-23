@@ -67,7 +67,12 @@ const MenuComponent = () => {
         />
       </svg>
       <div className="absolute bottom-1 left-0 w-full flex justify-around items-center">
-        <div className="flex flex-col items-center opacity-60">
+        <div
+          className={`flex flex-col items-center transition-opacity duration-300 ${
+            isShopOpen ? "opacity-60" : "opacity-100"
+          } transform ${isShopOpen ? "translate-y-0" : "-translate-y-4"}`}
+          onClick={() => dispatch(toggleShop())}
+        >
           <Donut
             size={48}
             color="#ffffff"
@@ -77,7 +82,7 @@ const MenuComponent = () => {
           <span className="text-white text-base font-bold">Donut</span>
         </div>
         <div
-           className={`flex flex-col items-center transition-opacity duration-300 ${
+          className={`flex flex-col items-center transition-opacity duration-300 ${
             isShopOpen ? "opacity-100" : "opacity-60"
           } transform ${isShopOpen ? "-translate-y-4" : "translate-y-0"}`}
           onClick={() => dispatch(toggleShop())}
