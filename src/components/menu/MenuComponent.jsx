@@ -1,5 +1,5 @@
 import React from "react";
-import { Donut, Store, Info } from "lucide-react";
+import { Donut, Store, ChartNoAxesColumn  } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleShop } from "../../redux/slices/UiSlice";
 
@@ -71,13 +71,12 @@ const MenuComponent = () => {
           className={`flex flex-col items-center transition-opacity duration-300 ${
             isShopOpen ? "opacity-60" : "opacity-100"
           } transform ${isShopOpen ? "translate-y-0" : "-translate-y-4"}`}
-          onClick={() => dispatch(toggleShop())}
+          onPointerDown={() => dispatch(toggleShop())}
         >
           <Donut
             size={48}
             color="#ffffff"
-            strokeWidth={3}
-            absoluteStrokeWidth
+            strokeWidth={2}
           />
           <span className="text-white text-base font-bold">Donut</span>
         </div>
@@ -85,19 +84,18 @@ const MenuComponent = () => {
           className={`flex flex-col items-center transition-opacity duration-300 ${
             isShopOpen ? "opacity-100" : "opacity-60"
           } transform ${isShopOpen ? "-translate-y-4" : "translate-y-0"}`}
-          onClick={() => dispatch(toggleShop())}
+          onPointerDown={() => dispatch(toggleShop())}
         >
           <Store
             size={48}
             color="#ffffff"
-            strokeWidth={3}
-            absoluteStrokeWidth
+            strokeWidth={2}
           />{" "}
           <span className="text-white text-base font-bold">Store</span>
         </div>
         <div className="flex flex-col items-center opacity-60">
-          <Info size={48} color="#ffffff" strokeWidth={3} absoluteStrokeWidth />
-          <span className="text-white text-base font-bold">Info</span>
+          <ChartNoAxesColumn  size={48} color="#ffffff" strokeWidth={2}  />
+          <span className="text-white text-base font-bold">Stats</span>
         </div>
       </div>
     </div>
