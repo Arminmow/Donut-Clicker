@@ -15,7 +15,8 @@ const Shop = ({ isMobile, isOpen }) => {
       animate={{
         y: isMobile ? (isOpen ? "0%" : "100%") : "0%",
       }}
-      transition={{ type: "spring", stiffness: 120, damping: 18 }}
+      transition={{ type: "tween", duration: 0.3, ease: "easeInOut" }}
+
       className={`bg-[url('https://cookieclicker.wiki.gg/images/9/94/BgPink.jpg?8f1a88=&format=original')] bg-cover bg-center z-40 flex flex-col items-center 
                     ${
                       isMobile

@@ -68,7 +68,6 @@ const playerSlice = createSlice({
         console.error(`Upgrade with id ${upgradeId} not found.`);
         return;
       }
-      console.log(upgrade.currentPrice);
       
       if (state.stats.donuts >= upgrade.currentPrice) {
         upgrade.count += 1;
