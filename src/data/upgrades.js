@@ -6,6 +6,7 @@ export const Upgrades = [
     label: "Click Power",
     basePrice: 15,
     priceMultiplier: 1.15,
+    clickPower : 1
   },
   {
     id: 1,

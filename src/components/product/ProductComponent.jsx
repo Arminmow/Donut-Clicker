@@ -11,7 +11,7 @@ const ProductComponent = ({ upgrade }) => {
   const dispatch = useDispatch();
   return (
     <div
-      onClick={
+      onPointerDown={
         !upgrade.locked && upgrade.canAfford
           ? () => {
               if (upgrade.id === 0) {
@@ -24,12 +24,12 @@ const ProductComponent = ({ upgrade }) => {
             }
           : null
       }
-      className={`relative bg-[url('https://i.ibb.co/7JbfM4hw/store-Tile-1.jpg')] bg-cover bg-no-repeat h-23 w-full flex items-center p-2 cursor-pointer group ${
-        upgrade.locked || !upgrade.canAfford ? "opacity-60" : "opacity-100"
+      className={`relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg shadow-lg h-24 w-full flex items-center p-4 cursor-pointer group transition-transform transform hover:scale-105 ${
+        upgrade.locked || !upgrade.canAfford ? "opacity-50 cursor-not-allowed" : "opacity-100"
       }`}
     >
       <div
-        className="h-16 w-16"
+        className="h-16 w-16 rounded-md border border-gray-700"
         style={{
           backgroundImage:
             "url('https://cdn.dashnet.org/cookieclicker/img/buildings.png?v=2.052')",
@@ -39,10 +39,10 @@ const ProductComponent = ({ upgrade }) => {
         }}
       ></div>
       <div className="flex flex-col justify-center ml-4 flex-grow">
-        <span className="font-bold text-lg text-white">
+        <span className="font-bold text-lg text-white truncate">
           {upgrade.locked ? "???" : upgrade.label}
         </span>
-        <div className="flex items-center">
+        <div className="flex items-center mt-1">
           <span className="text-sm text-[#6f6] font-bold mr-1">
             {formatNumber(upgrade.currentPrice)}
           </span>
@@ -51,14 +51,18 @@ const ProductComponent = ({ upgrade }) => {
             alt="Price Icon"
             className="h-4 w-4"
           />
+          <span className="text-sm text-gray-400 ml-2">
+            {upgrade.id === 0 ? `Click Power : ${upgrade.clickPower}` : `DPS: ${upgrade.dps * upgrade.count || 0}`}
+            
+          </span>
         </div>
       </div>
       <div className="flex items-center">
-        <span className="font-bold text-black opacity-20 text-5xl">
+        <span className="font-bold text-white text-3xl">
           <span className="font-mono">{upgrade.count}</span>
         </span>
       </div>
-      <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 pointer-events-none rounded-lg"></div>
     </div>
   );
 };
