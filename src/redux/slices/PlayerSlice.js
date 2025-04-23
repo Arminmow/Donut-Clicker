@@ -12,6 +12,7 @@ const initialState = {
   stats: {
     donuts: 0,
     clickPower: 1,
+    dps: 0,
   },
 };
 

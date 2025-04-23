@@ -8,6 +8,7 @@ const donutImage =
 
 const DonutComponent = () => {
   const donuts = useSelector((state) => state.player.stats.donuts);
+  const dps = useSelector((state) => state.player.stats.dps);
   const dispatch = useDispatch();
 
   return (
@@ -19,30 +20,26 @@ const DonutComponent = () => {
         >
           Redux Bakery
         </div>
-        <div 
+        <div
           className="w-full text-white text-center py-4 px-4 text-3xl font-bold"
           style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
         >
-          {donuts} Donuts
+          <div>{donuts} Donuts</div>
+          <div className="text-xl">{dps}/S</div>
         </div>
       </div>
       <div className="flex h-4/5 md:h-5/6 w-full items-center justify-center md:transform md:-translate-y-5">
-        <motion.img
+        <motion.div
           onPointerDown={() => dispatch(clickDonut())}
-          src={donutImage}
-          alt="Donut"
-          draggable={false}
-          className="h-70 w-70 md:h-80 md:w-80 object-contain rounded-full cursor-pointer"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{
-            scale: 0.85,
-            transition: {
-              type: "spring",
-              stiffness: 300,
-              damping: 15,
-            },
-          }}
-        />
+          className="flex flex-col items-center cursor-pointer"
+        >
+          <img
+            src={donutImage}
+            alt="Donut"
+            draggable={false}
+            className="h-70 w-70 md:h-80 md:w-80 object-contain rounded-full"
+          />
+        </motion.div>
       </div>
     </div>
   );
