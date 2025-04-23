@@ -54,6 +54,10 @@ const playerSlice = createSlice({
     updateUpgradeAffordability: () => {
       //TODO WHEN PASSIVE INCOME IS ADDED
     },
+    addDonutsFromDps: (state, action) => {
+      const amount = action.payload;
+      state.stats.donuts += amount;
+    }
   },
 });
 

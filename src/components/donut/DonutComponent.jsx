@@ -29,15 +29,22 @@ const DonutComponent = () => {
         </div>
       </div>
       <div className="flex h-4/5 md:h-5/6 w-full items-center justify-center md:transform md:-translate-y-5">
-        <motion.div
-          onPointerDown={() => dispatch(clickDonut())}
-          className="flex flex-col items-center cursor-pointer"
-        >
-          <img
+        <motion.div className="flex flex-col items-center cursor-pointer">
+          <motion.img
+            onPointerDown={() => dispatch(clickDonut())}
             src={donutImage}
             alt="Donut"
             draggable={false}
             className="h-70 w-70 md:h-80 md:w-80 object-contain rounded-full"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{
+              scale: 0.85,
+              transition: {
+                type: "spring",
+                stiffness: 300,
+                damping: 15,
+              },
+            }}
           />
         </motion.div>
       </div>
