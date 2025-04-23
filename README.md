@@ -16,8 +16,22 @@ Yeah — this is basically that, but with donuts.
 
 ---
 
+### TODO
+
+- Ability to save progress  
+- Animation on click and animation behind donut  
+- Achievements  
+- Special upgrades  
+- Better UI  
+- Leaderboard  
+- PWA support  
+
+---
+
 ### Live Demo  
 👉 [https://donutclicker1.netlify.app/](https://donutclicker1.netlify.app/)
+
+It's responsive so check it out on your mobile device as well
 
 ---
 
