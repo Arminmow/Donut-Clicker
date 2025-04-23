@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "motion/react";
 import { useSelector, useDispatch } from "react-redux";
 import { clickDonut } from "../../redux/slices/PlayerSlice";
-import {formatNumber} from "../../utilities/FormatNums";
+import { formatNumber } from "../../utilities/FormatNums";
 
 const donutImage =
   "https://i.ibb.co/DPL2sNRL/Donuts-Coffee-And-Doughnuts-Clip-Art-Drawing-Cartoon-Biscuits-Dunkin-Pennant-Transparent-PNG-removeb.png";
@@ -25,8 +25,10 @@ const DonutComponent = () => {
           className="w-full text-white text-center py-4 px-4 text-3xl font-bold"
           style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
         >
-          <div><span>{formatNumber(Math.floor(donuts))} </span>
-          Donuts</div>
+          <div>
+            <span>{formatNumber(Math.floor(donuts))} </span>
+            Donuts
+          </div>
           <div className="text-xl">{formatNumber(dps)}/S</div>
         </div>
       </div>
@@ -38,13 +40,12 @@ const DonutComponent = () => {
             alt="Donut"
             draggable={false}
             className="h-70 w-70 md:h-80 md:w-80 object-contain rounded-full"
-            whileHover={{ scale: 1.1 }}
+            whileHover={{ scale: 1.08 }}
             whileTap={{
-              scale: 0.85,
+              scale: 0.9,
               transition: {
-                type: "spring",
-                stiffness: 300,
-                damping: 15,
+                duration: 0.07,
+                ease: "easeOut",
               },
             }}
           />
