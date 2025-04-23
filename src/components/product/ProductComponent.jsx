@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import {
   increaseClickPower,
   spendDonuts,
+  buyUpgrade,
 } from "../../redux/slices/PlayerSlice";
 
 const ProductComponent = ({ upgrade }) => {
@@ -10,10 +11,13 @@ const ProductComponent = ({ upgrade }) => {
   return (
     <div
       onClick={
-        !upgrade.locked && upgrade.id === 0 && upgrade.canAfford
+        !upgrade.locked && upgrade.canAfford
           ? () => {
-              if (upgrade.canAfford) {
+              if (upgrade.id === 0) {
                 dispatch(increaseClickPower());
+                dispatch(spendDonuts(upgrade.currentPrice));
+              } else {
+                dispatch(buyUpgrade(upgrade.id));
                 dispatch(spendDonuts(upgrade.currentPrice));
               }
             }

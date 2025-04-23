@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import {addDonutsFromDps} from "../../redux/slices/PlayerSlice";
+import {addDonutsFromDps , checkAffordability} from "../../redux/slices/PlayerSlice";
 
 const GameEngine = () => {
   const dispatch = useDispatch();
@@ -8,7 +8,7 @@ const GameEngine = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       dispatch(addDonutsFromDps(1 / 30));
-    
+      dispatch(checkAffordability());
     }, 1000 / 30); 
 
     return () => clearInterval(interval); 
