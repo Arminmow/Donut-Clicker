@@ -5,6 +5,7 @@ import {
   spendDonuts,
   buyUpgrade,
 } from "../../redux/slices/PlayerSlice";
+import { formatNumber } from "../../utilities/FormatNums";
 
 const ProductComponent = ({ upgrade }) => {
   const dispatch = useDispatch();
@@ -43,7 +44,7 @@ const ProductComponent = ({ upgrade }) => {
         </span>
         <div className="flex items-center">
           <span className="text-sm text-[#6f6] font-bold mr-1">
-            {upgrade.currentPrice}
+            {formatNumber(upgrade.currentPrice)}
           </span>
           <img
             src="https://orteil.dashnet.org/cookieclicker/img/money.png"

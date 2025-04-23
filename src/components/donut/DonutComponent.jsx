@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "motion/react";
 import { useSelector, useDispatch } from "react-redux";
 import { clickDonut } from "../../redux/slices/PlayerSlice";
+import {formatNumber} from "../../utilities/FormatNums";
 
 const donutImage =
   "https://i.ibb.co/DPL2sNRL/Donuts-Coffee-And-Doughnuts-Clip-Art-Drawing-Cartoon-Biscuits-Dunkin-Pennant-Transparent-PNG-removeb.png";
@@ -24,9 +25,9 @@ const DonutComponent = () => {
           className="w-full text-white text-center py-4 px-4 text-3xl font-bold"
           style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
         >
-          <div><span>{Math.floor(donuts).toLocaleString()} </span>
+          <div><span>{formatNumber(Math.floor(donuts))} </span>
           Donuts</div>
-          <div className="text-xl">{dps}/S</div>
+          <div className="text-xl">{formatNumber(dps)}/S</div>
         </div>
       </div>
       <div className="flex h-4/5 md:h-5/6 w-full items-center justify-center md:transform md:-translate-y-5">
