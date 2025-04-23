@@ -1,12 +1,12 @@
 export function formatNumber(num) {
     if (num >= 1_000_000_000) {
-      return Math.floor(num / 1_000_000_000) + "B";
+      return (num / 1_000_000_000).toFixed(1).replace(/\.0$/, '') + "B";
     }
     if (num >= 1_000_000) {
-      return Math.floor(num / 1_000_000) + "M";
+      return (num / 1_000_000).toFixed(1).replace(/\.0$/, '') + "M";
     }
     if (num >= 1_000) {
-      return Math.floor(num / 1_000) + "K";
+      return num.toLocaleString(); // ← commas get added here
     }
     return num.toString();
   }
