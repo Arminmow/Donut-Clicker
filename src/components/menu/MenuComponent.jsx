@@ -1,9 +1,14 @@
-import React from 'react';
-import { Donut, Store, Ellipsis, Info } from "lucide-react";
+import React from "react";
+import { Donut, Store, Info } from "lucide-react";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleShop } from "../../redux/slices/UiSlice";
 
 const MenuComponent = () => {
-    return (
-        <div className="relative h-2/12 md:hidden overflow-hidden z-100">
+  const dispatch = useDispatch();
+  const isShopOpen = useSelector((state) => state.ui.isShopOpen);
+
+  return (
+    <div className="relative h-2/12 md:hidden overflow-hidden z-100">
       <svg
         className="absolute top-0 left-0 w-full h-full"
         viewBox="0 0 1440 320"
@@ -62,7 +67,7 @@ const MenuComponent = () => {
         />
       </svg>
       <div className="absolute bottom-1 left-0 w-full flex justify-around items-center">
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center opacity-60">
           <Donut
             size={48}
             color="#ffffff"
@@ -71,22 +76,27 @@ const MenuComponent = () => {
           />
           <span className="text-white text-base font-bold">Donut</span>
         </div>
-        <div className="flex flex-col items-center">
+        <div
+           className={`flex flex-col items-center transition-opacity duration-300 ${
+            isShopOpen ? "opacity-100" : "opacity-60"
+          } transform ${isShopOpen ? "-translate-y-4" : "translate-y-0"}`}
+          onClick={() => dispatch(toggleShop())}
+        >
           <Store
             size={48}
             color="#ffffff"
             strokeWidth={3}
             absoluteStrokeWidth
-          />
+          />{" "}
           <span className="text-white text-base font-bold">Store</span>
         </div>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center opacity-60">
           <Info size={48} color="#ffffff" strokeWidth={3} absoluteStrokeWidth />
           <span className="text-white text-base font-bold">Info</span>
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default MenuComponent;
