@@ -26,9 +26,6 @@ const playerSlice = createSlice({
         if (upgrade.locked && state.stats.donuts >= upgrade.currentPrice) {
           upgrade.locked = false;
         }
-      });
-
-      state.upgrades.forEach((upgrade) => {
         upgrade.canAfford = state.stats.donuts >= upgrade.currentPrice;
       });
     },
@@ -52,6 +49,9 @@ const playerSlice = createSlice({
       state.upgrades.forEach((upgrade) => {
         upgrade.canAfford = state.stats.donuts >= upgrade.currentPrice;
       });
+    },
+    updateUpgradeAffordability: () => {
+      //TODO WHEN PASSIVE INCOME IS ADDED
     },
   },
 });
