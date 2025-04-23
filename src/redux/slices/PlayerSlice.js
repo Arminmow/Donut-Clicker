@@ -55,12 +55,20 @@ const playerSlice = createSlice({
       //TODO WHEN PASSIVE INCOME IS ADDED
     },
     addDonutsFromDps: (state, action) => {
-      const amount = action.payload;
-      state.stats.donuts += amount;
-    }
+      const frameTime = action.payload; // should be 1 / 30
+      const dps = state.stats.dps || 0;
+      const donutsToAdd = dps * frameTime;
+
+      state.stats.donuts += donutsToAdd;
+    },
   },
 });
 
-export const { unlockUpgrade, clickDonut, increaseClickPower, spendDonuts } =
-  playerSlice.actions;
+export const {
+  unlockUpgrade,
+  clickDonut,
+  increaseClickPower,
+  spendDonuts,
+  addDonutsFromDps,
+} = playerSlice.actions;
 export default playerSlice.reducer;

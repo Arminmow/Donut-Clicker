@@ -24,7 +24,8 @@ const DonutComponent = () => {
           className="w-full text-white text-center py-4 px-4 text-3xl font-bold"
           style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
         >
-          <div>{donuts} Donuts</div>
+          <div><span>{Math.floor(donuts).toLocaleString()} </span>
+          Donuts</div>
           <div className="text-xl">{dps}/S</div>
         </div>
       </div>
