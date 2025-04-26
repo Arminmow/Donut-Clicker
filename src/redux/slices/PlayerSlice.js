@@ -36,7 +36,7 @@ const playerSlice = createSlice({
       upgrade.currentPrice = Math.floor(
         upgrade.basePrice * Math.pow(upgrade.priceMultiplier, upgrade.count)
       );
-      upgrade.clickPower += 0.5
+      upgrade.clickPower += 0.5;
     },
     spendDonuts: (state, action) => {
       const amount = action.payload;
@@ -63,12 +63,14 @@ const playerSlice = createSlice({
     },
     buyUpgrade: (state, action) => {
       const upgradeId = action.payload;
-      const upgrade = state.upgrades.find((upgrade) => upgrade.id === upgradeId);
+      const upgrade = state.upgrades.find(
+        (upgrade) => upgrade.id === upgradeId
+      );
       if (!upgrade) {
         console.error(`Upgrade with id ${upgradeId} not found.`);
         return;
       }
-      
+
       if (state.stats.donuts >= upgrade.currentPrice) {
         upgrade.count += 1;
         upgrade.currentPrice = Math.floor(
@@ -83,7 +85,14 @@ const playerSlice = createSlice({
       state.upgrades.forEach((upgrade) => {
         upgrade.canAfford = state.stats.donuts >= upgrade.currentPrice;
       });
-    }
+    },
+    addDonutsBasedOnElappsedTime: (state, action) => {
+      const elapsedTime = action.payload; // in seconds
+      const dps = state.stats.dps || 0;
+      const donutsToAdd = dps * elapsedTime;
+      console.log(`while you were gone, you earned ${donutsToAdd} donuts`);
+      state.stats.donuts += donutsToAdd;
+    },
   },
 });
 
@@ -94,6 +103,7 @@ export const {
   spendDonuts,
   addDonutsFromDps,
   buyUpgrade,
-  checkAffordability
+  checkAffordability,
+  addDonutsBasedOnElappsedTime
 } = playerSlice.actions;
 export default playerSlice.reducer;
