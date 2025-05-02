@@ -5,7 +5,8 @@ Yeah — this is basically that, but with donuts.
 
 ### The whole point of this project is just to show I know Redux to some extent.
 
-![donut-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/aee12858-0e17-4a70-a98f-a4368f831a0d)
+
+![donut-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/3408912c-d0ba-4c1a-905a-c7c88aa66da1)
 
 ---
 
