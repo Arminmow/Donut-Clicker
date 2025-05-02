@@ -5,6 +5,9 @@ Yeah — this is basically that, but with donuts.
 
 ### The whole point of this project is just to show I know Redux to some extent.
 
+![Demo](https://s4.gifyu.com/images/bLlVa.gif)
+
+
 ---
 
 ### Tech Stack
